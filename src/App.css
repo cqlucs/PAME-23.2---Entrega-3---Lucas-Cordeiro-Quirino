@@ -21,7 +21,7 @@
 /* Aba com os itens + barra lateral (side bar) */
 .main{
   width: 100%;
-  height: 80%;
+  height: 85%;
   /* background-color: yellow; */
   display: flex;
   justify-content: center;

@@ -15,37 +15,52 @@ import xiaomifoto from './imgs/xiaomi13tpro.png';
 
 // Aplicativo em geral
 function App() {
-  const listacompleta = {
-    xiaomi: ["Xiaomi 13T Pro Aço", './imgs/xiaomi13tpro.png', "Celulares", "599,90"], 
-    iphone: ["Iphone 12 Pro", './imgs/xiaomi13tpro.png', "Celulares", "699,90"]
-  };
+  // Essa é a lista completa de produtos, é uma lista de listas com as informações necessárias
+  const listacompleta = [
+    ["Xiaomi 13T Pro Aço", xiaomifoto, "Celulares", "599,90"], 
+    ["Iphone 12 Pro", xiaomifoto, "Celulares", "699,90"],
+    ["Samsumg S23", xiaomifoto, "Celulares", "1099,90"],
+    ["Xiaomi 13T", xiaomifoto, "Celulares", "699,90"],
+    ["Iphone 12 Pro", xiaomifoto, "Celulares", "699,90"],
+    ["Iphone 12 Pro", xiaomifoto, "Celulares", "699,90"],
+    ["Iphone 12 Pro", xiaomifoto, "Celulares", "699,90"],
+    ["Iphone 12 Pro", xiaomifoto, "Celulares", "699,90"],
+    ["Iphone 12 Pro", xiaomifoto, "Celulares", "699,90"],
+    ["Iphone 12 Pro", xiaomifoto, "Celulares", "699,90"]
+  ];
 
+  // Algumas variáveis com setState para a barra de busca funcionar
   const [textobusca, settexto] = useState("");
-  const [lista, setLista] = useState([]);
-  let listaatual = [];
+  const [listaitens, setLista] = useState(listacompleta);
+  const [listaatual, setlistatemp] = useState(listacompleta);
 
+  // Função para atualizar a lista temporária de busca, chamada sempre que algo é escrito na barra de busca.
+  // Basicamente as informações da listaatual são informações temporárias e só confirmadas na tela após clicar no botão de busca.
   function atualizarbusca() {
     if (textobusca !== "") {
-      listaatual = []
-      for (var elemento in listacompleta) {
-        console.log(elemento);
-        if (listacompleta[elemento[0]].includes(textobusca)) {
-          console.log(elemento, "FOI")
-          listaatual.push(elemento);
+      let listanova = []
+      setlistatemp([]);
+      for (let elemento of listacompleta) {
+        if (elemento[0].slice(0, textobusca.length) === textobusca) {
+          listanova.push(elemento);
         }
+        setlistatemp(listanova);
       }
     }
     else {
-      listaatual = listacompleta;
+      setlistatemp(listacompleta);
     }
-    console.log(lista)
   }
 
+  // Função para efetivamente realizar a busca e mudar os itens na tela, chamada quando clica-se no botão de busca
   function realizarbusca() {
-    setLista([listaatual]);
-    console.log(lista)
+    setLista(listaatual);
+    if (textobusca === "") {
+      setLista(listacompleta);
+    }
   }
 
+  // Variável com setState para esconder/mostrar a barra lateral
   const [visible, setVisible] = useState(true);
 
   return (
@@ -62,22 +77,9 @@ function App() {
         </div>}
         <div className="itensbar">
           {/* Aqui dentro vai cada um dos itens disponíveis para venda */}
-          {/* {lista.map((item) => {
-            return <Item nomedoprod={listacompleta[item[0]]} caminhoimagem={listacompleta[item[1]]} categoria={listacompleta[item[2]]} preco={listacompleta[item[3]]}></Item>;
-          })} */}
-          <Item caminhoimagem={xiaomifoto} nomedoprod="Xiaomi 13T Pro Aço" categoria="Celulares" preco="599,90"></Item>
-          <Item caminhoimagem={xiaomifoto} nomedoprod="Xiaomi 13T Pro Aço" categoria="Celulares" preco="599,90"></Item>
-          <Item caminhoimagem={xiaomifoto} nomedoprod="Xiaomi 13T Pro Aço" categoria="Celulares" preco="599,90"></Item>
-          <Item caminhoimagem={xiaomifoto} nomedoprod="Xiaomi 13T Pro Aço" categoria="Celulares" preco="599,90"></Item>
-          <Item caminhoimagem={xiaomifoto} nomedoprod="Xiaomi 13T Pro Aço" categoria="Celulares" preco="599,90"></Item>
-          <Item caminhoimagem={xiaomifoto} nomedoprod="Xiaomi 13T Pro Aço" categoria="Celulares" preco="599,90"></Item>
-          <Item caminhoimagem={xiaomifoto} nomedoprod="Xiaomi 13T Pro Aço" categoria="Celulares" preco="599,90"></Item>
-          <Item caminhoimagem={xiaomifoto} nomedoprod="Xiaomi 13T Pro Aço" categoria="Celulares" preco="599,90"></Item>
-          <Item caminhoimagem={xiaomifoto} nomedoprod="Xiaomi 13T Pro Aço" categoria="Celulares" preco="599,90"></Item>
-          <Item caminhoimagem={xiaomifoto} nomedoprod="Xiaomi 13T Pro Aço" categoria="Celulares" preco="599,90"></Item>
-          <Item caminhoimagem={xiaomifoto} nomedoprod="Xiaomi 13T Pro Aço" categoria="Celulares" preco="599,90"></Item>
-          <Item caminhoimagem={xiaomifoto} nomedoprod="Xiaomi 13T Pro Aço" categoria="Celulares" preco="599,90"></Item>
-          <Item caminhoimagem={xiaomifoto} nomedoprod="Xiaomi 13T Pro Aço" categoria="Celulares" preco="599,90"></Item>
+          {listaitens.map((prod) => {
+            return <Item nomedoprod={prod[0]} caminhoimagem={prod[1]} categoria={prod[2]} preco={prod[3]}></Item>;
+          })}
         </div>
       </div>
     </div>

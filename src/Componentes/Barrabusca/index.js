@@ -9,7 +9,7 @@ export default function Barrabusca ({textobusca, settexto, realizarbusca, atuali
         placeholder="Digite o item que deseja..." 
         value={textobusca} 
         onChange={(event) => {
-            settexto(event.target.value); atualizarbusca(); console.log(textobusca)
+            settexto(event.target.value); atualizarbusca();
             }}/>
         <button className="buscarb" onClick={realizarbusca}><img className="searchicon" src={searchphoto} alt="icone buscar"></img></button>
     </div>;

@@ -1,0 +1,17 @@
+/* Logo + título da loja */
+.fulllogo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-left: 1vw;
+    margin-right: auto;
+}
+
+/* Icone da loja */
+.logoicon {
+    width: 6em;
+    height: 6em;
+    object-fit: contain;
+}

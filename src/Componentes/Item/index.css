@@ -1,0 +1,51 @@
+/* Caixa em que o item é exibido */
+.fullitem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 15%;
+    height: 45%;
+    border-radius: 10px;
+    margin: auto;
+    background: none;
+    border: 1px dotted black;
+}
+
+/* Imagem do item */
+.itemimg {
+    width: 60%;
+    height: 60%;
+    object-fit: cover;
+}
+
+/* Indicador da categoria */
+.categoriaitem {
+    background-color: #fdb347;
+    padding: .5em 1em;
+    border-radius: 10px;
+    margin-right: auto;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+/* Nome do item */
+.nomeitem {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-left: 1em;
+    margin-right: auto;
+    margin-top: -2px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+/* Preço do item */
+.precoitem {
+    padding-left: 1em;
+    margin-top: -2px;
+    margin-right: auto;
+    font-size: 1.5em;
+    font-weight: bold;
+}

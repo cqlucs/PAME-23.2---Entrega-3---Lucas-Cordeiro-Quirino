@@ -6,7 +6,8 @@
 
 /* Título de cada filtro */
 .titulofiltros {
-    font-size: 1.5em;
+    font-size: 3vh;
+    text-wrap: balance;
 }
 
 /* Área com os botões para filtrar por marca */
@@ -14,51 +15,4 @@
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-}
-
-/* Design de cada botão de filtrar por marca */
-.botaomarca {
-    width: 8vh;
-    height: 6vh;
-    border-radius: 20px;
-    margin: auto;
-    border: 1px solid black;
-    background-color: #fdb347;
-}
-
-/* Imagem da marca no botão */
-.imgmarca {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-/* Área com as categorias para filtrar */
-.categoriadiv {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: left;
-}
-
-/* Checkbox das categorias */
-.checkcategoria {
-    width: 3vh;
-    height: 3vh;
-    border-radius: 20px;
-    border: 1px solid black;
-    appearance: none;
-    -webkit-appearance: none;
-    outline: none;
-    cursor: pointer;
-    background-color: #fdb347;
-}
-.checkcategoria:checked {
-    background-color: gray;
-}
-
-/* Nome de cada categoria */
-.categorianome {
-    font-size: 1em;
-    font-weight: bold;
 }

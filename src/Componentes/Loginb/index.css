@@ -4,8 +4,8 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    width: 20%;
-    height: 50%;
+    width: 32vw;
+    height: 10vh;
     margin-right: 1vw;
     margin-left: auto;
     background: none;
@@ -15,8 +15,8 @@
 
 /* Ícone de login */
 .loginicon {
-    width: 4em;
-    height: 4em;
+    width: 6vw;
+    height: 6vh;
     object-fit: contain;
 }
 
@@ -24,4 +24,5 @@
 .textologin {
     margin: 0;
     text-wrap: balance;
+    font-size: 3vh;
 }
